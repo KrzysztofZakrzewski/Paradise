@@ -8,3 +8,15 @@
 
 		}
 	}
+
+//=======================
+//Code of mnie to solve problem with closing navigation with cliking on any   navigation button    
+
+
+const item = document.querySelector('.nav__items');
+const removeNav = () => {
+nav.classList.toggle('nav--active');
+};
+
+item.addEventListener('click', removeNav);
+//===========================
