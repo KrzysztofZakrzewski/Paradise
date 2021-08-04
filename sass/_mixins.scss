@@ -3,7 +3,13 @@
 	right: 0;
 	height: 3px;
 	content: '';
-	//  background-color: $pure-white;
-	background-color: red;
+	background-color: $pure-white;
 	transition: width 0.3s;
+}
+
+@mixin heroImages($bgimg) {
+	background-image: $blue-gradient, url($bgimg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 }
