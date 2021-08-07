@@ -82,7 +82,7 @@ body {
 	height: 100vh;
 	width: 100%;
 	transform: translateX(100%); // przesuwa nawigację 100% w prawo.
-	transition: .5s cubic-bezier(0.65, 0.05, 0.36, 1);//powiązane z nadavaniem active w JS
+	transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1); //powiązane z nadavaniem active w JS
 	background-image: $blue-gradient-solid;
 	z-index: 100;
 
@@ -165,18 +165,83 @@ body {
 		transform: translateX(200%);
 	}
 
-	to{
+	to {
 		transform: translateX(0);
 	}
 }
 
 .nav-items-animation {
-	animation: navItemsAnimation 1s both; 
-}// both naprawia skaknie linków. Wszystkie elemnty z klasą "navItemsAnimation" mają zaczynać się z miejsca "from"
+	animation: navItemsAnimation 1s both;
+} // both naprawia skaknie linków. Wszystkie elemnty z klasą "navItemsAnimation" mają zaczynać się z miejsca "from"
+
+// MAIN
+// DREAMS SECTION
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+	}
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+	&__title {
+		margin-bottom: 0.5em;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+	}
+}
+
+// HERO-IMG
+.hero-img {
+	position: relative;
+	padding: 10em 2em;
+	@include heroImages('../img/hero-mini.jpg');
+	text-align: center;
+	color: $pure-white;
+	overflow: hidden;
+	&__title {
+		font-family: 'dancing Script', cursive;
+		margin-bottom: 0.5em;
+		font-size: 4.8rem;
+	}
+	&__text {
+		padding: 1em 0;
+	}
+}
 
 // ============================
 // MEDIA
 // ============================
+
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+			&-text {
+				width: 55%;
+				&--right {
+					text-align: right;
+				}
+			}
+			&-img {
+				width: 40%;
+
+				&--right {
+					order: 1;
+				}
+			}
+		}
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
+	}
+}
 
 @media (min-width: 768px) {
 	.white-block {
@@ -196,20 +261,110 @@ body {
 			font-size: 1.6rem;
 		}
 	}
-
-	@media (min-width: 992px) {
-		.burger-btn {
-			top: 50px;
-			right: 50px;
+	.dreams {
+		&__text {
+			font-size: 1.8rem;
 		}
-
-		.header {
-			background-image: $blue-gradient, url(../img/haeder-big.jpg);
-
-			&__heading {
-				font-size: 10rem;
-			}
+	}
+	.hero-img {
+		padding: 30rem 2rem;
+		hr {
+			margin: 0 auto;
+			width: 70%;
 		}
-		// With resolution 800px, when big scrins are reverse it's loudin hero image in 369px. It's look terrible. Code to fix that is in notes. Just a rare case. :)
+		&__text {
+			font-size: 2.2rem;
+		}
 	}
 }
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.header {
+		background-image: $blue-gradient, url(../img/haeder-big.jpg);
+
+		&__heading {
+			font-size: 10rem;
+		}
+	}
+	// With resolution 800px, when big scrins are reverse it's loudin hero image in 369px. It's look terrible. Code to fix that is in notes. Just a rare case. :)
+	.nav {
+		&__item {
+			font-size: 4.8rem;
+		}
+	}
+
+	.dreams {
+		&__box {
+			margin: 5em 0;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-bottom: 2.5em;
+			}
+		}
+		&__title {
+			font-size: 3.6;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+	.hero-img {
+		padding: 40rem 2em;
+		background-image: $blue-gradient, url('../img/hero-big.jpg');
+
+		&__title {
+			font-size: 7.2rem;
+		}
+
+		hr {
+			width: 60%;
+			max-width: 900px;
+		}
+	}
+}
+// ============================
+// DREAMS
+// ============================
+
+.section-heading {
+	position: relative;
+	margin-bottom: 2em;
+	font-size: 3rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	color: $main-color;
+	letter-spacing: 2px;
+}
+
+.section-padding {
+	padding: 2em 6em;
+}
+
+@media (min-width: 768px) {
+	.section-heading {
+		font-size: 3.6rem;
+	}
+	.section-padding {
+		padding: 8em 2em;
+	}
+}
+
+@media (min-width: 992px) {
+	.section-heading {
+		font-size: 4.8rem;
+	}
+	.section-padding {
+		padding: 10em 2em;
+	}
+}
+
+
+
